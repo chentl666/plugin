@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".PluginActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_jump_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="内部跳转activity"/>
+
+    <Button
+        android:id="@+id/btn_jump_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加载启动插件service"/>
+    <Button
+        android:id="@+id/btn_stop_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="停止service"/>
+
+    <Button
+        android:id="@+id/btn_start_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="插件内注册广播接收者"/>
+
+    <Button
+        android:id="@+id/btn_send_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="插件内发送广播"/>
+
+    <Button
+        android:id="@+id/btn_unregister_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注销插件内注册广播接收者"/>
+</LinearLayout>
