@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.ctl.plugin.lib.proxy.ProxyActivity" />
-        <activity android:name=".hook.HookProxyActivity" />
 
         <service android:name="com.ctl.plugin.lib.proxy.ProxyService" />
     </application>

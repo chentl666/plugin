@@ -1,5 +1,6 @@
 package com.ctl.plugintest;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -114,6 +115,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void openHookTest(View view) {
-        startActivity(new Intent(MainActivity.this, TestActivity.class));
+//        startActivity(new Intent(MainActivity.this, TestActivity.class));
+
+        // 宿主中 启动宿主中的Activity，另外一种写法
+//        Intent intent = new Intent();
+//        intent.setComponent(new ComponentName("com.ctl.plugintest.hook", "com.ctl.plugintest.hook.TestActivity"));
+//        startActivity(intent);
+
+        // 宿主中  去启动插件里面的HookPluginActivity -- (插件里面的Activity)
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.ctl.plugin_package.hook", "com.ctl.plugin_package.hook.HookPluginActivity"));
+        startActivity(intent);
     }
 }

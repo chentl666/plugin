@@ -1,4 +1,4 @@
-package com.ctl.plugintest.hook;
+package com.ctl.plugin.lib.proxy;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ public class HookProxyActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Toast.makeText(this, "我是代理的Activity", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "我是代理的Activity", Toast.LENGTH_SHORT).show();
     }
 }

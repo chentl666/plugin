@@ -43,5 +43,5 @@
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:onClick="openHookTest"
-        android:text="hook启动TestActivity(没有注册)" />
+        android:text="hook式启动插件" />
 </LinearLayout>

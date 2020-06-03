@@ -1,2 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ctl.plugin.lib" />
+    package="com.ctl.plugin.lib" >
+
+    <application>
+        <activity android:name=".proxy.HookProxyActivity" />
+    </application>
+</manifest>
