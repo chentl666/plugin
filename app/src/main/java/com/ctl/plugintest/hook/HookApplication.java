@@ -1,26 +1,49 @@
 package com.ctl.plugintest.hook;
 
 import android.app.Application;
-import android.content.res.AssetManager;
 import android.content.res.Resources;
 
-import com.ctl.plugin.lib.HookPluginManager;
+import com.ctl.plugin.lib.core.AMSCheckEngine;
+import com.ctl.plugin.lib.core.ActivityThreadmHRestore;
+import com.ctl.plugin.lib.core.CustomLoadedApkAction;
+import com.ctl.plugin.lib.core.DexElementFuse;
 
 import java.io.File;
 
 public class HookApplication extends Application {
 
     private Resources resources;
-    private AssetManager assetManager;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        HookPluginManager.getInstance(this).loadPlugin(getExternalFilesDir(null) + File.separator + "p.apk");
-        resources = HookPluginManager.getInstance(this).getResources();
-        assetManager = HookPluginManager.getInstance(this).getAssetManager();
+        try {
+            AMSCheckEngine.mHookAMS(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        try {
+            ActivityThreadmHRestore.mActivityThreadmHAction(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        DexElementFuse dexElementFuse = new DexElementFuse();
+        try {
+            dexElementFuse.mainPluginFuse(this, getExternalFilesDir(null) + File.separator + "p.apk");
+            resources = dexElementFuse.getResources();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+//        CustomLoadedApkAction customLoadedApkAction = new CustomLoadedApkAction();
+//        try {
+//            customLoadedApkAction.action(this, getExternalFilesDir(null) + File.separator + "p.apk");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
@@ -28,8 +51,4 @@ public class HookApplication extends Application {
         return resources == null ? super.getResources() : resources;
     }
 
-    @Override
-    public AssetManager getAssets() {
-        return assetManager == null ? super.getAssets() : assetManager;
-    }
 }
