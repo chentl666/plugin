@@ -1,5 +1,5 @@
 # plugin
-占位式插件框架
+插件框架
 
 
 1.先在项目根目录的 build.gradle 的 repositories 添加:
